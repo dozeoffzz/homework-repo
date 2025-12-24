@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-1-4</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      const input = prompt(`숫자를 입력하세요`);
+      const num = Number(input);
+      if (num < 2 || num > 9) {
+        console.log(`2~9 사이의 숫자를 입력하세요.`);
+      }
+      for (let i = 0; i < 10; i++) {
+        console.log(`${num} x ${i} = ${num * i}`);
+      }
+    </script>
+  </body>
+</html>
