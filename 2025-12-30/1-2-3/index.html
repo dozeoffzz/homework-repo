@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-2-3</title>
+  </head>
+  <body>
+    <script type="module">
+      const student = {
+        name: "최원희",
+        age: "26",
+        scores: {
+          math: 30,
+          english: 35,
+        },
+      };
+      const mathscore = student["scores"]["math"];
+      const engscore = student["scores"]["english"];
+
+      const myName = function getProperty(obj, key) {
+        return obj[key];
+      };
+      console.log("동적 접근:", myName(student, "name"));
+
+      const Average = function AverageScore(math, english) {
+        return (math + english) / 2;
+      };
+      console.log("평균 점수: ", Average(mathscore, engscore));
+
+      const copyStudent = JSON.parse(JSON.stringify(student));
+      console.log(copyStudent);
+
+      const copymath = (copyStudent.scores.math = 70);
+      const copyeng = (copyStudent.scores.english = 80);
+
+      const copyAverage = function copyAverageScore(copymath, copyenglish) {
+        return (copymath + copyeng) / 2;
+      };
+      console.log("깊은 복사) 희망 점수: ", copyAverage(copymath, copyeng));
+    </script>
+  </body>
+</html>
