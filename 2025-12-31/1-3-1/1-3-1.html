@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-3-1</title>
+    <style>
+      #myBtn {
+        width: 300px;
+        height: 160px;
+        margin: 0 auto;
+        border-radius: 20px;
+        border: 1px solid white;
+        background-color: wheat;
+        font-size: 12px;
+        font-weight: 900;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button id="myBtn" class="btn"></button>
+    </div>
+    <script>
+      const myBtn = document.querySelector("#myBtn");
+      myBtn.addEventListener("click", () => {
+        const tagName = myBtn.tagName;
+        const id = myBtn.id;
+        const className = myBtn.className;
+        const parent = myBtn.parentElement;
+        const children = parent.children;
+        const qsa = document.querySelectorAll("myBtn");
+        myBtn.textContent = `tagName: ${tagName},
+        id: ${id},
+        parent: ${parent},
+        querySelector: ${myBtn.tagName},
+        querySelectorAll ${qsa.tagName}`;
+      });
+    </script>
+  </body>
+</html>
