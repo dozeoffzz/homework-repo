@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-4-4</title>
+  </head>
+  <body>
+    <script>
+      const hero = {
+        name: "Batman",
+        call() {
+          console.log(this.name);
+        },
+      };
+
+      const stolenCall = hero.call;
+      stolenCall(); //변수에 담으면 this가 사라짐, call메서드의 this는 window를 가르키기 때문에 값이 없어 undefined가 나타난다.
+
+      const fixedCall = hero.call.bind(hero);
+      fixedCall();
+
+      // setTimeout(function () {
+      //   console.log(this.name);
+      // }, 3000);
+    </script>
+  </body>
+</html>
