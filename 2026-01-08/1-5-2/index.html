@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-5-2</title>
+  </head>
+  <body>
+    <script>
+      console.log("1. 가게오픈");
+
+      setTimeout(() => {
+        console.log("2. 일반 손님 주문 완료");
+      }, 1000);
+
+      Promise.resolve().then(() => {
+        console.log("3. VIP 손님 입장");
+      });
+
+      console.log("4. 재료 준비");
+
+      // 1. 1.가게오픈 - 2. 4.재료준비 - 3. 3.VIP 손님 입장 - 4. 2. 일반 손님 주문 완료
+
+      // setTimeout과, Promise는 비동기로 queue에 들어가지만
+      //  Promise는 마이크로태스크 setTimeout은 매크로태스크로 마이크로태스크가 우선순위가 더 높아 먼저 나타난다
+
+      // setTimeout을 1초로 늘려도 순서가 똑같을 것 같다.
+    </script>
+  </body>
+</html>
