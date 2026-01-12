@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 100%;
+        background-color: beige;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20%;
+      }
+      #todo-input {
+        background-color: white;
+        height: 30px;
+        width: 300px;
+        margin: 20px;
+      }
+      #add-btn {
+        background-color: white;
+        height: 35px;
+        width: 50px;
+      }
+      #todo-list {
+        list-style: none;
+        text-align: right;
+        /* margin-right: 10px; */
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        background-color: blanchedalmond;
+        padding: 20px 10px;
+        border-radius: 20px;
+      }
+      .deleteBtn {
+        background-color: white;
+        width: 25px;
+        height: 20px;
+        border-radius: 30%;
+        margin: 10px 0px 10px 50px;
+      }
+      .list {
+        border-bottom: 1px solid;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="list-container">
+        <input id="todo-input" type="text" placeholder="꼭 할 것만 적으시오." />
+        <button id="add-btn">O</button>
+        <ul id="todo-list"></ul>
+      </div>
+    </div>
+    <script>
+      const input = document.querySelector("#todo-input");
+      const button = document.querySelector("#add-btn");
+      const list = document.querySelector("#todo-list");
+      // button.addEventListener("click", addTodo);
+      const saved = localStorage.getItem("todos");
+      const todos = saved ? JSON.parse(saved) : [];
+
+      // function saveTodos() {
+      //   localStorage.getItem("todos", JSON.stringify(todos));
+      // }
+
+      // function addTodo() {
+      //   const text = input.value.trim();
+      //   if (!text) return;
+      //   const li = document.createElement("li");
+      //   li.className = "list";
+      //   li.textContent = text;
+
+      //   const deleteBtn = document.createElement("button");
+      //   deleteBtn.className = "deleteBtn";
+      //   deleteBtn.textContent = "X";
+
+      //   deleteBtn.addEventListener("click", () => {
+      //     li.remove();
+      //   });
+
+      //   li.appendChild(deleteBtn);
+      //   list.prepend(li);
+
+      //   todos.push(text);
+      //   saveTodos();
+      //   input.value = "";
+      // }
+      function render() {
+        list.innerHTML = ""; // 초기화
+
+        todos.forEach((todo) => {
+          const li = document.createElement("li");
+          li.className = "list";
+          li.textContent = todo;
+          list.prepend(li);
+          const deleteBtn = document.createElement("button");
+          deleteBtn.className = "deleteBtn";
+          deleteBtn.textContent = "X";
+
+          deleteBtn.addEventListener("click", () => {
+            li.remove();
+          });
+
+          li.appendChild(deleteBtn);
+        });
+      }
+
+      // 4️⃣ 데이터 저장 함수
+      function saveTodos() {
+        localStorage.setItem("todos", JSON.stringify(todos));
+      }
+
+      // 5️⃣ 추가 버튼 클릭 이벤트
+      button.addEventListener("click", function () {
+        const text = input.value.trim();
+        if (text === "") return;
+
+        todos.push(text); // 배열에 추가
+        saveTodos(); // localStorage 저장
+        render(); // UI 업데이트
+
+        input.value = ""; // 입력창 초기화
+      });
+
+      // 6️⃣ 최초 실행 시 렌더링
+      render();
+    </script>
+  </body>
+</html>
