@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2-2-2</title>
+  </head>
+  <body>
+    <script>
+      function reverse(hello) {
+        return hello.split("").reverse().join("");
+      }
+      console.log(reverse("hello"));
+
+      function padThree(n) {
+        return String(n).padStart(3, "0");
+      }
+      console.log(padThree(5));
+
+      function removeAll(banana, a) {
+        return banana.replaceAll(a, "");
+      }
+      console.log(removeAll("banana", "a"));
+    </script>
+  </body>
+</html>
