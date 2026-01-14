@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2-3-2</title>
+  </head>
+  <body>
+    <script>
+      function solution(array, height) {
+        const high = array.filter((arr) => arr > height);
+        const highLength = high.length;
+        return highLength;
+      }
+      console.log(solution([149, 180, 192, 170], 167));
+      console.log(solution([180, 120, 140], 190));
+
+      // 읽기
+      // 읽으면서 문제 정리
+      // 문제를 확실하게 읽어야함 크다는건 같다는게 포함되지 않다..
+      // 계획
+      // 어떤 메서드 사용해야 할 지 생각함
+      // 구현
+      // 필터 메서드 사용하는데 매개변수를 2개 넣어가지고 자꾸 실패함.. 메서드 이름만 알지 완벽히 다루지 못함..
+      //
+      // 검증
+
+      // 필터를 사용해서 167 이상을 걸러낸다
+      // 배열 속 남은 사람들이 머쓱이보다 큰 사람
+      // 머쓱이보다 키 큰 사람 수 .length
+
+      function solution1(sides) {
+        sides.sort((a, b) => a - b);
+        if (sides[2] < sides[0] + sides[1]) {
+          return 1;
+        } else {
+          return 2;
+        }
+      }
+      console.log(solution1([1, 2, 3]));
+      console.log(solution1([3, 6, 2]));
+      console.log(solution1([199, 72, 222]));
+
+      // 가장 긴 변 < 변1 + 변2 한다
+      // slides가 배열이다
+      // 배열을 오름차순 으로 정렬하면 가장 큰 값이 뒤로 간다.
+      // 그럼 sides[2] < sides[0] + sides[1] 요렇게 하면 되는거 아님? ㅇㅋ ㄱㄱ
+      // if 만들수 있다 return 1
+      // if 만들 수 없다 return 2
+
+      function solution2(n, k) {
+        const ser = Math.floor(n / 10);
+        const answer = n * 12000 + k * 2000 - ser * 2000;
+        return answer;
+      }
+      console.log(solution2(10, 3));
+      console.log(solution2(64, 6));
+      // n = 인분
+      // 10 단위로 늘어날수록 -2000
+      // 10을 나누면 되겠네 소숫점 때고
+    </script>
+  </body>
+</html>

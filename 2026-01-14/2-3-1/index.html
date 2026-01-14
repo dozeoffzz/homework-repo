@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2-3-1</title>
+  </head>
+  <body>
+    <script>
+      function getDivisors(n) {
+        const arr = [];
+        for (let i = 0; i <= n; i++) {
+          if (n % i === 0) arr.push(i);
+        }
+        return arr;
+      }
+      console.log(getDivisors(12));
+
+      function countDivisors(n) {
+        return getDivisors(n).length;
+      }
+      console.log(countDivisors(12));
+
+      function sumDivisors(n) {
+        const sum = getDivisors(n).reduce((acc, cur) => {
+          return acc + cur;
+        }, 0);
+        return sum;
+      }
+      console.log(sumDivisors(12));
+    </script>
+  </body>
+</html>
