@@ -8,7 +8,8 @@ export default function Header() {
         style={{
           fontSize: "52px",
           marginBottom: "30px",
-          textShadow: "3px 3px 3px #0c0c0c",
+          textShadow: "3px 3px 3px #93a5cf",
+          color: "#becceb",
         }}
       >
         Introduce
