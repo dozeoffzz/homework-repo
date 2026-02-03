@@ -1,0 +1,20 @@
+#root {
+  min-width: 1200px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  background-blend-mode: multiply;
+  background-color: #fafafa;
+  width: 400px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 4px 4px 4px #e9342b;
+}
