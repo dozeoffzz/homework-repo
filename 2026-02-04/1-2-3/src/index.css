@@ -1,0 +1,25 @@
+#root {
+  min-height: 100vh;
+  gap: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ProfileCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 200px;
+  box-shadow: 2px 2px 2px #0c0c0c;
+}
+.PostCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 400px;
+  box-shadow: 2px 2px 2px #0c0c0c;
+}
